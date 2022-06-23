@@ -21,7 +21,7 @@ function del(id) {
       PostService.delete(id)
       .then(response => {
           datas.value = datas.value.filter((d) => d.id !== id)
-        //   console.log(response.data);
+          // console.log(response.data);
       })
       .catch(e => {
           console.log(e);
@@ -55,7 +55,7 @@ getAll()
                             <th>User</th>
                             <th>Aksi</th>
                         </tr>
-                        <tr>
+                        <tr v-for="data in datas" :key="data.id">
                             <td></td>
                             <td></td>
                             <td></td>

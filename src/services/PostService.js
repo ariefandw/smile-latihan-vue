@@ -1,5 +1,5 @@
 import http from "../http-common";
-class PostDataService {
+class PostService {
   getAll(q='') {
     return http.get(`/post?q=${q}`);
   }
@@ -16,4 +16,4 @@ class PostDataService {
     return http.delete(`/post/${id}`);
   }
 }
-export default new PostDataService();
+export default new PostService();
