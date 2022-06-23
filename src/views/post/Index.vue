@@ -41,7 +41,7 @@ getAll()
                 
                 <div class="card-body">
                     <div class="input-group mb-3">
-                        <input type="text" name="q" class="form-control" placeholder="Cari">
+                        <input type="text" name="q" class="form-control" placeholder="Cari" v-model="q" @input="getAll(q)">
                         <button type="submit" class="input-group-text text-white bg-primary"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
 
@@ -56,11 +56,11 @@ getAll()
                             <th>Aksi</th>
                         </tr>
                         <tr v-for="data in datas" :key="data.id">
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{ data.id }}</td>
+                            <td>{{ data.judul }}</td>
+                            <td>{{ data.pesan }}</td>
+                            <td>{{ data.category_id }}</td>
+                            <td>{{ data.user_id }}</td>
                             <td>
                                 <div class="btn-group btn-group-sm" role="group">
                                     <button class="btn btn-info" href=""><i class="fa-solid fa-eye"></i></button> 
