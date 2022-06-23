@@ -1,5 +1,35 @@
 <script setup>
+import { ref } from 'vue'
+import PostService from "../../services/PostService"
 
+const datas = ref([])
+const q = ref("")
+
+function getAll(q = '') {
+    PostService.getAll(q)
+    .then(response => {
+        datas.value = response.data.data;
+        // console.log(response.data);
+    })
+    .catch(e => {
+        console.log(e);
+    });
+}
+
+function del(id) {
+    if (confirm('Apakah anda yakin?')){
+      PostService.delete(id)
+      .then(response => {
+          datas.value = datas.value.filter((d) => d.id !== id)
+        //   console.log(response.data);
+      })
+      .catch(e => {
+          console.log(e);
+      });
+    }
+}
+
+getAll()
 </script>
 
 <template>
